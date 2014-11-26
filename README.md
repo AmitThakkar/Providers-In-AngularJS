@@ -17,7 +17,7 @@ All the big applications build using small-2 component/modules. And when we are 
 
 > What is difference among them?
 
-**1. Constant:** **Constant** can be define with module.constant() api. This api takes two arguments: 1. name for the constant and 2. value for the constant. Lets see the code:
+**1. Constant:** **Constant** can be define with ```module.constant()``` api. This api takes two arguments: 1. name for the constant and 2. value for the constant. Lets see the code:
 
 ```JavaScript
 providerTestModule.constant("ConstantPrimitiveTest", "I am Constant, My value can't be change.");
@@ -26,7 +26,7 @@ providerTestModule.constant("ConstantObjectTest", {name: "Amit Thakkar", age: 23
 
 **NOTE: As names says, value of constant can't be change.**
 
-**2. Value:** Value can be define with module.value() api. This api also takes two arguments: 1. name for the value and 2. value for the value. Lets see the code:
+**2. Value:** Value can be define with ```module.value()``` api. This api also takes two arguments: 1. name for the value and 2. value for the value. Lets see the code:
 
 ```JavaScript
 providerTestModule.value("ValueTest", "I am Value, Which can be modify.");
@@ -34,7 +34,7 @@ providerTestModule.value("ValueTest", "I am Value, Which can be modify.");
 
 **NOTE: We can change the value of the value provider with the help of module.decorator() api.**
 
-**3. Service:** We can define **Service** with module.service() api. This api also takes two arguments: 1. name for the **Service** and 2. [**Constructor function**](http://codechutney.in/blog/javascript/constructor-pattern/) for the initializing the **Service**. Lets see the code:
+**3. Service:** We can define **Service** with ```module.service()``` api. This api also takes two arguments: 1. name for the **Service** and 2. [**Constructor function**](http://codechutney.in/blog/javascript/constructor-pattern/) for the initializing the **Service**. Lets see the code:
 
 ```JavaScript
 providerTestModule.service("ServiceTest", function () {
@@ -50,7 +50,7 @@ Whenever first time that **Service** will be request/required, that **function**
 
 **AngularJS** store all the **Providers** with itself, Whenever we request/required any **Provider**, **AngularJS** checks first into its storage, if request/required **Provider** found in the storage then it will be returned from there otherwise **AngularJS** initialized that **Provider**, and inject to requested place and store with itself for future request/require.
 
-**4. Factory:** We can define **Factory** with module.factory() api. This api also takes two arguments: 1. name for the **Factory** and 2. **function** for the initializing the **Factory**. Lets see the code:
+**4. Factory:** We can define **Factory** with ```module.factory()``` api. This api also takes two arguments: 1. name for the **Factory** and 2. **function** for the initializing the **Factory**. Lets see the code:
 
 ```JavaScript
 providerTestModule.factory("FactoryTest", function () {
@@ -66,7 +66,7 @@ providerTestModule.factory("FactoryTest", function () {
 
 **Factory** is very similar to **Service**. There are one know difference between **Service** and **Factory** is that **Service** **function** treat as [**Constructor function**](http://codechutney.in/blog/javascript/constructor-pattern/) while **Factory** **function** treat as normal **function**.
 
-**5. Provider:** We can define **Provider** with module.provider() api. This api also takes two arguments: 1. name for the **Provider** and 2. **function** for the initializing the **Provider**. Lets see the code:
+**5. Provider:** We can define **Provider** with ```module.provider()``` api. This api also takes two arguments: 1. name for the **Provider** and 2. **function** for the initializing the **Provider**. Lets see the code:
 
 ```JavaScript
 providerTestModule.provider("ProviderTest", function () {

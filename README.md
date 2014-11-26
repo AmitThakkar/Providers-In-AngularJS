@@ -7,7 +7,7 @@ While working on **AngularJS**, many of us get confused about the **AngularJS** 
 
 > What are **Providers** ?
 
-All the big applications built using small component/modules. And when we are building **AngularJS** application then **Providers** play a very essential role. **Providers** are injectors, so we can inject **providers** to other modules/component. **Providers** get injected by name and are initialized whenever other module requests/requires them. There are 5 different types of **providers** in **AngularJS**.
+All the big applications are built using small components/modules. And when we are building **AngularJS** application then **Providers** play a very essential role. **Providers** are injectors, so we can inject **providers** to other modules/component. **Providers** get injected by name and are initialized whenever other module requests/requires them. There are 5 different types of **providers** in **AngularJS**.
 
 1. constant
 2. value

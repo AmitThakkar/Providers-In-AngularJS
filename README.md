@@ -1,23 +1,21 @@
 Providers In AngularJS
 ======================
 
-This repository for explaining all the Provider in the AngularJS.
+This repository for exploring all the Provider in the AngularJS.
 
 When we are working on **AngularJS**, then many of us get confuse about the **AngularJS** **Providers**. And think that What are these **Providers**? What is difference among them? Why should we use these **Providers**? When should we use which **Provider**? In this blog we will cover all these questions and we will get know about all the **providers**.
 
-> Question: What are these **Providers** ?
+> What are these **Providers** ?
 
-Answer: All the big applications build using small-2 component/modules. And when we are making **AngularJS** application then **Providers** play a very essential role. **Providers** are injectors, so we can inject **providers** to other modules/component. **Providers** gets inject by name and initialized whenever other module request/require for them.
-
-> Question: What is difference among them?
-
-Answer: There are 6 below **providers** in **AngularJS**.
+All the big applications build using small-2 component/modules. And when we are building **AngularJS** application then **Providers** play a very essential role. **Providers** are injectors, so we can inject **providers** to other modules/component. **Providers** gets inject by name and initialized whenever other module request/require for them. There are 5 different types of **providers** in **AngularJS**.
 
 1. constant
 2. value
 3. service
 4. factory
 5. provider
+
+> What is difference among them?
 
 **1. Constant:** **Constant** can be define with module.constant() api. This api takes two arguments: 1. name for the constant and 2. value for the constant. Lets see the code:
 
@@ -102,13 +100,13 @@ providerTestModule.config(["ProviderTestProvider", function (ProviderTestProvide
 
 **NOTE:** In module.config() api, **Provider** will be postfix with **Provider**. e.g. ```ProviderTest``` will be refer as ```ProviderTestProvider```.
 
-> Question: Why should we use these **Providers**?
+> Why should we use these **Providers**?
 
-Answer: Because all **Providers** are [Singleton](http://codechutney.in/blog/nodejs/singleton-pattern-with-javascript/). And all the **Providers** get lazy initialized whenever they get request/required first time( **Providers** get loaded on-demand only). Actually all the **AngularJS Providers** implement **Singleton** and **Dependency Injection/DI** design patterns, which help us to write good, loose couple code.
+Because all **Providers** are [Singleton](http://codechutney.in/blog/nodejs/singleton-pattern-with-javascript/). And all the **Providers** get lazy initialized whenever they get request/required first time( **Providers** get loaded on-demand only). Actually all the **AngularJS Providers** implement **Singleton** and **Dependency Injection/DI** design patterns, which help us to write good, loose couple code.
 
-> Question: When should we use which **Provider**?
+> When should we use which **Provider**?
 
-Answer: **Constant**, **Value** are self explain, where to use. And **Provider** is the only **Provider** which can customise before the initializing so we can use **Provider** to expose something(any module, any api handler etc). Where as **Service** and **Factory** we generally use to put our logic, interact with Server API etc.
+**Constant**, **Value** are self explain, where to use. And **Provider** is the only **Provider** which can customise before the initializing so we can use **Provider** to expose something(any module, any api handler etc). Where as **Service** and **Factory** we generally use to put our logic, interact with Server API etc.
 
 **NOTE :** Its an just convention that we should **Service** where we playing with single instance, while **Factory** should be use where we are playing with multiple instances. Although whatever we are doing with **Service** we can do with **Factory** and vice-versa.
 

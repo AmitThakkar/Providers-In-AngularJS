@@ -2,15 +2,15 @@
  * Created by Amit Thakkar on 17/11/14.
  */
 
-// Defining A test Module with name providerTest
+// Defining a test module with name providerTest
 var providerTestModule = angular.module("providersTest", []);
 
 /*
  * Defining A test Constant with name ConstantTest
  * module.constant() api takes two arguments,
  * 1. Name for the constant
- * 2. value for that constant. If value is primitive then it can not be modify,
- * If value is object then reference can not be modify, we can add/remove/update
+ * 2. value for that constant. If value is primitive then it can not be modified,
+ * If value is object then reference can not be modified, we can add/remove/update
  * properties to that object.
  * */
 providerTestModule.constant("ConstantPrimitiveTest", "I am Constant, My value can't be change.");
@@ -25,12 +25,12 @@ providerTestModule.constant("ConstantObjectTest", {name: "Amit Thakkar", age: 23
 providerTestModule.value("ValueTest", "I am Value, Which can be modify.");
 
 /*
- * Defining A test Service with name ServiceTest
+ * Defining a test service with name ServiceTest
  * module.service() api also takes two arguments,
  * 1. Name for Service which will be use to inject this service.
- * 2. Constructor function, Which will be called with new keyword as
+ * 2. Constructor function, which will be called with new keyword as
  * 'new ProvidedFunctionAsSecondArgument()', and whatever it returns,
- * will be injected as this service.
+ * will be injected as service.
  * */
 providerTestModule.service("ServiceTest", function () {
     this.getName = function () {
@@ -41,8 +41,8 @@ providerTestModule.service("ServiceTest", function () {
 /*
  * Defining A test Factory with name FactoryTest
  * module.factory() api takes two arguments,
- * 1. Name for Factory which will be use to inject this factory.
- * 2. function, Which will be called and what ever it returns will
+ * 1. Name for Factory which will be used to inject this factory.
+ * 2. function, which will be called and what ever it returns will
  * be injected as this factory.
  * */
 providerTestModule.factory("FactoryTest", function () {
@@ -57,9 +57,9 @@ providerTestModule.factory("FactoryTest", function () {
  * Defining A test Provider with name ProviderTest
  * module.provider() api also takes two arguments,
  * 1. Name for Provider which will be use to inject this provider.
- * 2. Constructor function, Which will be called with new keyword as
+ * 2. Constructor function, which will be called with new keyword as
  * 'new ProvidedFunctionAsSecondArgument()', and whatever it returns,
- * $get method will be call on that and whatever that $get method
+ * $get method will be called on that and whatever that $get method
  * will return will be injected as this provider.
  * */
 providerTestModule.provider("ProviderTest", function () {
@@ -79,7 +79,7 @@ providerTestModule.provider("ProviderTest", function () {
     };
 });
 
-// Provider Have one advantage that we can configure Providers before injecting.
+// Provider has one advantage that we can configure Providers before injecting.
 providerTestModule.config(["ProviderTestProvider", function (ProviderTestProvider) {
     ProviderTestProvider.setHost("www.codechutney.in/");
     ProviderTestProvider.setURI("blog");

@@ -25,7 +25,7 @@ providerTestModule.constant("ConstantObjectTest", {name: "Amit Thakkar", age: 23
 providerTestModule.value("ValueTest", "I am Value, Which can be modify.");
 
 /*
- * Defining a test service with name ServiceTest
+ * Defining a test Service with name ServiceTest
  * module.service() api also takes two arguments,
  * 1. Name for Service which will be use to inject this service.
  * 2. Constructor function, which will be called with new keyword as

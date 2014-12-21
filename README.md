@@ -11,7 +11,7 @@ All the big applications are built using small components/modules. And when we a
 
 1. constant
 2. value
-3. service
+3. [service](http://codechutney.in/blog/angularjs/service-in-angularjs/)
 4. factory
 5. provider
 
@@ -34,7 +34,7 @@ providerTestModule.value("ValueTest", "I am Value, Which can be modify.");
 
 **NOTE: We can change the value of the value provider with the help of module.decorator() api.**
 
-**3. Service:** We can define **Service** with ```module.service()``` api. This api also takes two arguments: 1. name for the **Service** and 2. [**Constructor function**](http://codechutney.in/blog/javascript/constructor-pattern/) for the initializing the **Service**. Lets see the code:
+**3. [Service](http://codechutney.in/blog/angularjs/service-in-angularjs/):** We can define **[Service](http://codechutney.in/blog/angularjs/service-in-angularjs/)** with ```module.service()``` api. This api also takes two arguments: 1. name for the **[Service](http://codechutney.in/blog/angularjs/service-in-angularjs/)** and 2. [**Constructor function**](http://codechutney.in/blog/javascript/constructor-pattern/) for the initializing the **[Service](http://codechutney.in/blog/angularjs/service-in-angularjs/)**. Lets see the code:
 
 ```JavaScript
 providerTestModule.service("ServiceTest", function () {
@@ -46,7 +46,7 @@ providerTestModule.service("ServiceTest", function () {
 
 **NOTE: Whatever function we are passing as a second argument, will be treated as a class**.
 
-Whenever first time this **Service** will be requested/required, that **function** will be called with **new** keyword as ```new Function()```, and resultant object of **new**([**Constructor function**](http://codechutney.in/blog/javascript/constructor-pattern/)), will be injected as **Service** there and the returned resultant object will also be stored by the **AngularJS** for future request. So on the second and future request for this same **Service**, that same object will be returned(this time [**Constructor function**](http://codechutney.in/blog/javascript/constructor-pattern/) will not be called with **new** keyword). In-fact that [**Constructor function**](http://codechutney.in/blog/javascript/constructor-pattern/) will be called only once as it is [**Singleton**](http://codechutney.in/blog/nodejs/singleton-pattern-with-javascript/).
+Whenever first time this **[Service](http://codechutney.in/blog/angularjs/service-in-angularjs/)** will be requested/required, that **function** will be called with **new** keyword as ```new Function()```, and resultant object of **new**([**Constructor function**](http://codechutney.in/blog/javascript/constructor-pattern/)), will be injected as **[Service](http://codechutney.in/blog/angularjs/service-in-angularjs/)** there and the returned resultant object will also be stored by the **AngularJS** for future request. So on the second and future request for this same **[Service](http://codechutney.in/blog/angularjs/service-in-angularjs/)**, that same object will be returned(this time [**Constructor function**](http://codechutney.in/blog/javascript/constructor-pattern/) will not be called with **new** keyword). In-fact that [**Constructor function**](http://codechutney.in/blog/javascript/constructor-pattern/) will be called only once as it is [**Singleton**](http://codechutney.in/blog/nodejs/singleton-pattern-with-javascript/).
 
 **AngularJS** stores all the **Providers** with itself, whenever we request/require any **Provider**, **AngularJS** checks first into its storage, if requested/required **Provider** is found in the storage then it will be returned from there otherwise **AngularJS** will initialize that **Provider**, and inject it to requested place and store with itself for future request.
 
@@ -64,7 +64,7 @@ providerTestModule.factory("FactoryTest", function () {
 
 **NOTE: Whatever function(which we are passing as a second argument) will return, will be injected as Factory**.
 
-**Factory** is very similar to **Service**. The one known difference between **Service** and **Factory** is that **Service** **function** is treated as [**Constructor function**](http://codechutney.in/blog/javascript/constructor-pattern/) while **Factory** **function** is treated as normal **function**.
+**Factory** is very similar to **[Service](http://codechutney.in/blog/angularjs/service-in-angularjs/)**. The one known difference between **[Service](http://codechutney.in/blog/angularjs/service-in-angularjs/)** and **Factory** is that **[Service](http://codechutney.in/blog/angularjs/service-in-angularjs/)** **function** is treated as [**Constructor function**](http://codechutney.in/blog/javascript/constructor-pattern/) while **Factory** **function** is treated as normal **function**.
 
 **5. Provider:** We can define **Provider** with ```module.provider()``` api. This api also takes two arguments: 1. name for the **Provider** and 2. **function** for initializing the **Provider**. Let's see the code:
 
@@ -89,7 +89,7 @@ providerTestModule.provider("ProviderTest", function () {
 
 **NOTE: Whatever we are returning from that $get function/method, will be injected as Provider.**
 
-All the **Providers**( **Constant**, **Value**, **Service** and **Factory**) are syntactic sugar on top of this. But this is the only one **Provider** which can be access before initializing. We can provide/set custom configuration to provider with the help of module.config() api before initializing the **Provider**. e.g.
+All the **Providers**( **Constant**, **Value**, **[Service](http://codechutney.in/blog/angularjs/service-in-angularjs/)** and **Factory**) are syntactic sugar on top of this. But this is the only one **Provider** which can be access before initializing. We can provide/set custom configuration to provider with the help of module.config() api before initializing the **Provider**. e.g.
 
 ```JavaScript
 providerTestModule.config(["ProviderTestProvider", function (ProviderTestProvider) {
@@ -106,8 +106,8 @@ Because all **Providers** are [Singleton](http://codechutney.in/blog/nodejs/sing
 
 > When should we use which **Provider**?
 
-**Constant**, **Value** are self explanatory. **Provider** is the only **Provider** which can be customized before initializing so we can use **Provider** to expose something(any module, any api handler etc). Whereas **Service** and **Factory** are generally used to put our logic, interact with Server API etc.
+**Constant**, **Value** are self explanatory. **Provider** is the only **Provider** which can be customized before initializing so we can use **Provider** to expose something(any module, any api handler etc). Whereas **[Service](http://codechutney.in/blog/angularjs/service-in-angularjs/)** and **Factory** are generally used to put our logic, interact with Server API etc.
 
-**NOTE :** Its an just convention that we should **Service** where we are playing with single instance, while **Factory** should be use where we are playing with multiple instances, although whatever we are doing with **Service**, can be done with **Factory** and vice-versa.
+**NOTE :** Its an just convention that we should **[Service](http://codechutney.in/blog/angularjs/service-in-angularjs/)** where we are playing with single instance, while **Factory** should be use where we are playing with multiple instances, although whatever we are doing with **[Service](http://codechutney.in/blog/angularjs/service-in-angularjs/)**, can be done with **Factory** and vice-versa.
 
 You can checkout full working source code from this [link](https://github.com/AmitThakkar/Providers-In-AngularJS).

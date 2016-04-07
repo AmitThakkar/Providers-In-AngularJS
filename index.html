@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Providers In Angularjs by AmitThakkar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Providers In Angularjs</h1>
+      <h2 class="project-tagline">This repository explains difference among AngularJS Provider, Service and Factory.</h2>
+      <a href="https://github.com/AmitThakkar/Providers-In-AngularJS" class="btn">View on GitHub</a>
+      <a href="https://github.com/AmitThakkar/Providers-In-AngularJS/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/AmitThakkar/Providers-In-AngularJS/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="providers-in-angularjs" class="anchor" href="#providers-in-angularjs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Providers In AngularJS</h1>
+
+<p>This repository is for exploring all the Providers in AngularJS.</p>
+
+<p>While working on <strong>AngularJS</strong>, many of us get confused about the <strong>AngularJS</strong> <strong>Providers</strong> and wonder what are these <strong>Providers</strong>? What is the difference among them? Why should we use these <strong>Providers</strong>? Which <strong>Provider</strong> should be used when? In this blog we will cover all these questions and also get to know about all the <strong>providers</strong>.</p>
+
+<blockquote>
+<p>What are <strong>Providers</strong> ?</p>
+</blockquote>
+
+<p>All the big applications are built using small components/modules. And when we are building <strong>AngularJS</strong> application then <strong>Providers</strong> play a very essential role. <strong>Providers</strong> are injectors, so we can inject <strong>providers</strong> to other modules/component. <strong>Providers</strong> get injected by name and are initialized whenever other module requests/requires them. There are 5 different types of <strong>providers</strong> in <strong>AngularJS</strong>.</p>
+
+<ol>
+<li>constant</li>
+<li>value</li>
+<li><a href="http://codechutney.in/blog/angularjs/service-in-angularjs/">service</a></li>
+<li>factory</li>
+<li>provider</li>
+</ol>
+
+<blockquote>
+<p>What is difference among them?</p>
+</blockquote>
+
+<p><strong>1. Constant:</strong> <strong>Constant</strong> can be defined with <code>module.constant()</code> api. This api takes two arguments: 1. name for the constant and 2. value for the constant. Lets see the code:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">providerTestModule</span>.<span class="pl-en">constant</span>(<span class="pl-s"><span class="pl-pds">"</span>ConstantPrimitiveTest<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>I am Constant, My value can't be changed.<span class="pl-pds">"</span></span>);
+<span class="pl-smi">providerTestModule</span>.<span class="pl-en">constant</span>(<span class="pl-s"><span class="pl-pds">"</span>ConstantObjectTest<span class="pl-pds">"</span></span>, {name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Amit Thakkar<span class="pl-pds">"</span></span>, age<span class="pl-k">:</span> <span class="pl-c1">23</span>});</pre></div>
+
+<p><strong>NOTE: As names says, value of constant can't be change.</strong></p>
+
+<p><strong>2. Value:</strong> Value can be defined with <code>module.value()</code> api. This api also takes two arguments: 1. name for the value and 2. value for the value. Lets see the code:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">providerTestModule</span>.<span class="pl-c1">value</span>(<span class="pl-s"><span class="pl-pds">"</span>ValueTest<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>I am Value, Which can be modify.<span class="pl-pds">"</span></span>);</pre></div>
+
+<p><strong>NOTE: We can change the value of the value provider with the help of module.decorator() api.</strong></p>
+
+<p><strong>3. <a href="http://codechutney.in/blog/angularjs/service-in-angularjs/">Service</a>:</strong> We can define <strong><a href="http://codechutney.in/blog/angularjs/service-in-angularjs/">Service</a></strong> with <code>module.service()</code> api. This api also takes two arguments: 1. name for the <strong><a href="http://codechutney.in/blog/angularjs/service-in-angularjs/">Service</a></strong> and 2. <a href="http://codechutney.in/blog/javascript/constructor-pattern/"><strong>Constructor function</strong></a> for the initializing the <strong><a href="http://codechutney.in/blog/angularjs/service-in-angularjs/">Service</a></strong>. Lets see the code:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">providerTestModule</span>.<span class="pl-en">service</span>(<span class="pl-s"><span class="pl-pds">"</span>ServiceTest<span class="pl-pds">"</span></span>, <span class="pl-k">function</span> () {
+    <span class="pl-v">this</span>.<span class="pl-en">getName</span> <span class="pl-k">=</span> <span class="pl-k">function</span> () {
+        <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">"</span>I am Service Test<span class="pl-pds">"</span></span>;
+    };
+});</pre></div>
+
+<p><strong>NOTE: Whatever function we are passing as a second argument, will be treated as a class</strong>.</p>
+
+<p>Whenever first time this <strong><a href="http://codechutney.in/blog/angularjs/service-in-angularjs/">Service</a></strong> will be requested/required, that <strong>function</strong> will be called with <strong>new</strong> keyword as <code>new Function()</code>, and resultant object of <strong>new</strong>(<a href="http://codechutney.in/blog/javascript/constructor-pattern/"><strong>Constructor function</strong></a>), will be injected as <strong><a href="http://codechutney.in/blog/angularjs/service-in-angularjs/">Service</a></strong> there and the returned resultant object will also be stored by the <strong>AngularJS</strong> for future request. So on the second and future request for this same <strong><a href="http://codechutney.in/blog/angularjs/service-in-angularjs/">Service</a></strong>, that same object will be returned(this time <a href="http://codechutney.in/blog/javascript/constructor-pattern/"><strong>Constructor function</strong></a> will not be called with <strong>new</strong> keyword). In-fact that <a href="http://codechutney.in/blog/javascript/constructor-pattern/"><strong>Constructor function</strong></a> will be called only once as it is <a href="http://codechutney.in/blog/nodejs/singleton-pattern-with-javascript/"><strong>Singleton</strong></a>.</p>
+
+<p><strong>AngularJS</strong> stores all the <strong>Providers</strong> with itself, whenever we request/require any <strong>Provider</strong>, <strong>AngularJS</strong> checks first into its storage, if requested/required <strong>Provider</strong> is found in the storage then it will be returned from there otherwise <strong>AngularJS</strong> will initialize that <strong>Provider</strong>, and inject it to requested place and store with itself for future request.</p>
+
+<p><strong>NOTE</strong>: You can checkout <a href="http://codechutney.in/blog/angularjs/service-in-angularjs/">Service In AngularJS</a> blog for more details. There I have described <a href="http://codechutney.in/blog/angularjs/service-in-angularjs/">Services</a> in more detail(How to use <a href="http://codechutney.in/blog/javascript/constructor-pattern/">Services</a>? How to inject <a href="http://codechutney.in/blog/javascript/constructor-pattern/">Services</a>? etc.).</p>
+
+<p><strong>4. Factory:</strong> We can define <strong>Factory</strong> with <code>module.factory()</code> api. This api also takes two arguments: 1. name for the <strong>Factory</strong> and 2. <strong>function</strong> for initializing the <strong>Factory</strong>. Lets see the code:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">providerTestModule</span>.<span class="pl-en">factory</span>(<span class="pl-s"><span class="pl-pds">"</span>FactoryTest<span class="pl-pds">"</span></span>, <span class="pl-k">function</span> () {
+    <span class="pl-k">return</span> {
+        <span class="pl-en">getName</span><span class="pl-k">:</span> <span class="pl-k">function</span> () {
+            <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">"</span>I am Factory Test<span class="pl-pds">"</span></span>;
+        }
+    }
+});</pre></div>
+
+<p><strong>NOTE: Whatever function(which we are passing as a second argument) will return, will be injected as Factory</strong>.</p>
+
+<p><strong>Factory</strong> is very similar to <strong><a href="http://codechutney.in/blog/angularjs/service-in-angularjs/">Service</a></strong>. The one known difference between <strong><a href="http://codechutney.in/blog/angularjs/service-in-angularjs/">Service</a></strong> and <strong>Factory</strong> is that <strong><a href="http://codechutney.in/blog/angularjs/service-in-angularjs/">Service</a></strong> <strong>function</strong> is treated as <a href="http://codechutney.in/blog/javascript/constructor-pattern/"><strong>Constructor function</strong></a> while <strong>Factory</strong> <strong>function</strong> is treated as normal <strong>function</strong>.</p>
+
+<p><strong>5. Provider:</strong> We can define <strong>Provider</strong> with <code>module.provider()</code> api. This api also takes two arguments: 1. name for the <strong>Provider</strong> and 2. <strong>function</strong> for initializing the <strong>Provider</strong>. Let's see the code:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">providerTestModule</span>.<span class="pl-en">provider</span>(<span class="pl-s"><span class="pl-pds">"</span>ProviderTest<span class="pl-pds">"</span></span>, <span class="pl-k">function</span> () {
+    <span class="pl-k">var</span> host, uri;
+    <span class="pl-v">this</span>.<span class="pl-en">setHost</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">h</span>) {
+        host <span class="pl-k">=</span> h;
+    };
+    <span class="pl-v">this</span>.<span class="pl-en">setURI</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">u</span>) {
+        uri <span class="pl-k">=</span> u;
+    };
+    <span class="pl-v">this</span>.<span class="pl-en">$get</span> <span class="pl-k">=</span> <span class="pl-k">function</span> () {
+        <span class="pl-k">return</span> {
+            <span class="pl-en">getName</span><span class="pl-k">:</span> <span class="pl-k">function</span> () {
+                <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">"</span>I am Provider Test! My host value: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> host <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span> and URI value: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> uri;
+            }
+        }
+    };
+});</pre></div>
+
+<p><strong>NOTE: Whatever we are returning from that $get function/method, will be injected as Provider.</strong></p>
+
+<p>All the <strong>Providers</strong>( <strong>Constant</strong>, <strong>Value</strong>, <strong><a href="http://codechutney.in/blog/angularjs/service-in-angularjs/">Service</a></strong> and <strong>Factory</strong>) are syntactic sugar on top of this. But this is the only one <strong>Provider</strong> which can be access before initializing. We can provide/set custom configuration to provider with the help of module.config() api before initializing the <strong>Provider</strong>. e.g.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">providerTestModule</span>.<span class="pl-en">config</span>([<span class="pl-s"><span class="pl-pds">"</span>ProviderTestProvider<span class="pl-pds">"</span></span>, <span class="pl-k">function</span> (<span class="pl-smi">ProviderTestProvider</span>) {
+    <span class="pl-smi">ProviderTestProvider</span>.<span class="pl-en">setHost</span>(<span class="pl-s"><span class="pl-pds">"</span>www.codechutney.in/<span class="pl-pds">"</span></span>);
+    <span class="pl-smi">ProviderTestProvider</span>.<span class="pl-en">setURI</span>(<span class="pl-s"><span class="pl-pds">"</span>blog<span class="pl-pds">"</span></span>);
+}]);</pre></div>
+
+<p><strong>NOTE:</strong> In module.config() api, <strong>Provider</strong> will be postfix with <strong>Provider</strong>. e.g. <code>ProviderTest</code> will be referred as <code>ProviderTestProvider</code>.</p>
+
+<blockquote>
+<p>Why should we use these <strong>Providers</strong>?</p>
+</blockquote>
+
+<p>Because all <strong>Providers</strong> are <a href="http://codechutney.in/blog/nodejs/singleton-pattern-with-javascript/">Singleton</a>. And all the <strong>Providers</strong> get lazy initialized whenever they get request first time( <strong>Providers</strong> get loaded on-demand only). Actually all the <strong>AngularJS Providers</strong> implement <strong>Singleton</strong> and <strong>Dependency Injection/DI</strong> design patterns, which help us to write good, loosely coupled code.</p>
+
+<blockquote>
+<p>When should we use which <strong>Provider</strong>?</p>
+</blockquote>
+
+<p><strong>Constant</strong>, <strong>Value</strong> are self explanatory. <strong>Provider</strong> is the only <strong>Provider</strong> which can be customized before initializing so we can use <strong>Provider</strong> to expose something(any module, any api handler etc). Whereas <strong><a href="http://codechutney.in/blog/angularjs/service-in-angularjs/">Service</a></strong> and <strong>Factory</strong> are generally used to put our logic, interact with Server API etc.</p>
+
+<p><strong>NOTE :</strong> Its an just convention that we should <strong><a href="http://codechutney.in/blog/angularjs/service-in-angularjs/">Service</a></strong> where we are playing with single instance, while <strong>Factory</strong> should be use where we are playing with multiple instances, although whatever we are doing with <strong><a href="http://codechutney.in/blog/angularjs/service-in-angularjs/">Service</a></strong>, can be done with <strong>Factory</strong> and vice-versa.</p>
+
+<p>You can checkout full working source code from this <a href="https://github.com/AmitThakkar/Providers-In-AngularJS">link</a>.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/AmitThakkar/Providers-In-AngularJS">Providers In Angularjs</a> is maintained by <a href="https://github.com/AmitThakkar">AmitThakkar</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>

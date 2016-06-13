@@ -112,4 +112,12 @@ Because all **Providers** are [Singleton](http://codechutney.in/blog/nodejs/sing
 
 **NOTE :** Its an just convention that we should **[Service](http://codechutney.in/blog/angularjs/service-in-angularjs/)** where we are playing with single instance, while **Factory** should be use where we are playing with multiple instances, although whatever we are doing with **[Service](http://codechutney.in/blog/angularjs/service-in-angularjs/)**, can be done with **Factory** and vice-versa.
 
-You can checkout full working source code from this [link](https://github.com/AmitThakkar/Providers-In-AngularJS).
+Follow Me
+---
+[Github](https://github.com/AmitThakkar)
+
+[Twitter](https://twitter.com/amit_thakkar01)
+
+[LinkedIn](https://in.linkedin.com/in/amitthakkar01)
+
+[More Blogs By Me](http://amitthakkar.github.io/)
